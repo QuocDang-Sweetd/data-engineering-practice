@@ -1,3 +1,6 @@
+# 23716711 _ Nguyễn Quốc Đăng
+# 23713631 _ Trịnh Trần Phúc Khang 
+# 23726261 _ Ngũ Duy Minh
 # Ex1 :
 **Sau khi tạo xog file main.py để download link về thì thực hiện chạy lệnh ‘docker build --tag=exercise-1 .’ để tạo nơi hoạt động cho chương trình** 
 ![image](https://github.com/user-attachments/assets/1a2d256b-249b-4255-a0e8-beb020ee42df)
