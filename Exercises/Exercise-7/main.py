@@ -1,79 +1,57 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import avg, count, col, to_date, desc, row_number, max, expr, year
+import pyspark.sql.functions as F
 from pyspark.sql.window import Window
 import zipfile
 import os
 
-def unzip_csv_files(input_folder="data", output_folder="unzipped_data"):
-    os.makedirs(output_folder, exist_ok=True)
-    for file in os.listdir(input_folder):
-        if file.endswith(".zip"):
-            with zipfile.ZipFile(os.path.join(input_folder, file), 'r') as zip_ref:
-                zip_ref.extractall(output_folder)
+zip_path = os.path.join('data', 'hard-drive-2022-01-01-failures.csv.zip')
 
-def read_data(spark, path):
-    return spark.read.option("header", True).csv(path, inferSchema=True)
 
-def average_trip_duration_per_day(df):
-    df.groupBy(to_date("start_time").alias("date")) \
-      .agg(avg("tripduration").alias("avg_duration")) \
-      .write.mode("overwrite").option("header", True).csv("reports/avg_duration_per_day")
+# Thư mục giải nén
+extract_dir = r"D:\data-engineering-practice\Exercises\Exercise-7\data\unzipped"
 
-def trips_count_per_day(df):
-    df.groupBy(to_date("start_time").alias("date")) \
-      .agg(count("*").alias("trip_count")) \
-      .write.mode("overwrite").option("header", True).csv("reports/trip_count_per_day")
+if not os.path.exists(extract_dir):
+    os.makedirs(extract_dir)
 
-def most_popular_start_station_per_month(df):
-    df = df.withColumn("month", expr("substring(start_time, 0, 7)"))
-    window = Window.partitionBy("month").orderBy(desc("count"))
-    df.groupBy("month", "from_station_name") \
-      .count() \
-      .withColumn("rank", row_number().over(window)) \
-      .filter(col("rank") == 1) \
-      .drop("rank") \
-      .write.mode("overwrite").option("header", True).csv("reports/popular_start_per_month")
+with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+    zip_ref.extractall(extract_dir)
 
-def average_duration_by_gender(df):
-    df.groupBy("gender") \
-      .agg(avg("tripduration").alias("avg_duration")) \
-      .write.mode("overwrite").option("header", True).csv("reports/avg_duration_by_gender")
+unzipped_file_path = os.path.join(extract_dir, "hard-drive-2022-01-01-failures.csv")
 
-def top_10_ages_longest_shortest(df):
-    df = df.withColumn("age", 2025 - col("birthyear"))
-    df.filter(col("age").isNotNull()) \
-      .orderBy(desc("tripduration")) \
-      .select("age", "tripduration") \
-      .limit(10) \
-      .write.mode("overwrite").option("header", True).csv("reports/top10_longest_trips")
-    
-    df.filter(col("age").isNotNull()) \
-      .orderBy("tripduration") \
-      .select("age", "tripduration") \
-      .limit(10) \
-      .write.mode("overwrite").option("header", True).csv("reports/top10_shortest_trips")
+
+def process_data(spark):
+    df = spark.read.option("header", True).csv(unzipped_file_path)
+
+    df = df.withColumn("source_file", F.input_file_name())
+
+    df = df.withColumn(
+        "file_date",
+        F.to_date(F.regexp_extract("source_file", r"(\d{4}-\d{2}-\d{2})", 1), "yyyy-MM-dd")
+    )
+
+    df = df.withColumn(
+        "brand",
+        F.when(
+            F.instr(F.col("model"), " ") > 0,
+            F.split("model", " ")[0]
+        ).otherwise(F.lit("unknown"))
+    )
+
+    window_spec = Window.partitionBy("model").orderBy(F.col("capacity_bytes").cast("bigint").desc())
+    df = df.withColumn("storage_ranking", F.dense_rank().over(window_spec))
+
+    key_columns = ["date", "serial_number", "model", "capacity_bytes"]
+    df = df.withColumn("primary_key", F.sha2(F.concat_ws("||", *key_columns), 256))
+
+    df.show(5, truncate=False)
+
+    return df
+
 
 def main():
-    spark = SparkSession.builder.appName("Exercise6").getOrCreate()
+    spark = SparkSession.builder.appName("Exercise7").enableHiveSupport().getOrCreate()
+    process_data(spark)
 
-    # Step 1: unzip files to folder
-    unzip_csv_files()
-
-    # Step 2: Read all csvs from the unzipped folder
-    df = read_data(spark, "unzipped_data/*.csv")
-    df = df.withColumn("tripduration", col("tripduration").cast("double"))
-
-    # Step 3: Make sure reports/ exists
-    os.makedirs("reports", exist_ok=True)
-
-    # Step 4: Run analytics
-    average_trip_duration_per_day(df)
-    trips_count_per_day(df)
-    most_popular_start_station_per_month(df)
-    average_duration_by_gender(df)
-    top_10_ages_longest_shortest(df)
-
-    spark.stop()
 
 if __name__ == "__main__":
     main()
