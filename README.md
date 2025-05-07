@@ -1,102 +1,85 @@
-## Data Engineering Practice Problems
+# 23716711 _ Nguyễn Quốc Đăng
+# 23713631 _ Trịnh Trần Phúc Khang 
+# 23726261 _ Ngũ Minh Duy
+# Ex1 :
+**Sau khi tạo xog file main.py để download link về thì thực hiện chạy lệnh ‘docker build --tag=exercise-1 .’ để tạo nơi hoạt động cho chương trình** 
+![image](https://github.com/user-attachments/assets/1a2d256b-249b-4255-a0e8-beb020ee42df)
+**Đây là image sau khi hoàn thành câu lệnh:**
+![image](https://github.com/user-attachments/assets/2fbb62df-a0cd-4370-9abe-a355a2096208)
+**Tiếp theo thực hiện lệnh “docker-compose up run” để chạy chương trình**
+![image](https://github.com/user-attachments/assets/dd3035a3-2e7a-40ae-8648-a83ea9f92797)
+**Kết quả sau khi chạy :**
+![image](https://github.com/user-attachments/assets/5b232b1b-6b52-4b5d-9c99-1cd074ad9d27)
+![image](https://github.com/user-attachments/assets/1cabdbf5-b2dc-4053-a335-51e636f9a0b6)
+# Ex2 :
+**Sau khi tạo xog file main.py để download link về thì thực hiện chạy lệnh ‘docker build --tag=exercise-2 .’ để tạo nơi hoạt động cho chương trình**
+![image](https://github.com/user-attachments/assets/b8d0f852-005d-469d-b749-a3fd17eb33c9)
+**Đây là image sau khi hoàn thành câu lệnh:**
+![image](https://github.com/user-attachments/assets/0b471f8d-e393-4226-9fde-d686836dbae7)
 
-One of the main obstacles of Data Engineering is the large
-and varied technical skills that can be required on a 
-day-to-day basis.
+**Tiếp theo thực hiện lệnh “docker-compose up run” để chạy chương trình và có kết quả như sau:**
+![image](https://github.com/user-attachments/assets/58001b64-4fdb-4220-80bf-aefd605dae89)
 
-*** Note - If you email a link to your GitHub repo with all the completed
-exercises, I will send you back a free copy of my ebook Introduction to Data Engineering. ***
+# Ex3 : 
+**Sau khi tạo xog file main.py để download link về thì thực hiện chạy lệnh ‘docker build --tag=exercise-2 .’ để tạo nơi hoạt động cho chương trình**
+![image](https://github.com/user-attachments/assets/2c0bda1d-8fb0-4b25-a1c7-a8700e976946)
+**Đây là image sau khi hoàn thành câu lệnh:**
+![image](https://github.com/user-attachments/assets/8b6641d0-3780-4b29-891f-ea1d6582958f)
+**Tiếp theo thực hiện lệnh “docker-compose up run” để chạy chương trình và có kết quả như sau:**
+![image](https://github.com/user-attachments/assets/10191b85-7935-47e3-84ef-e2e3e86020ee)
+![image](https://github.com/user-attachments/assets/730c2f9f-01e7-48a6-8f84-a043e5564729)
+**Vấn đề boto3 không thể tải file từ S3 vì không có thông tin xác thực nên yêu cầu cung cấp phân enviroment gồm thong tin xác thực trong docker-compose.**
 
-This aim of this repository is to help you develop and 
-learn those skills. Generally, here are the high level
-topics that these practice problems will cover.
+#Ex4 : 
+**Sau khi tạo xog file main.py để download link về thì thực hiện chạy lệnh ‘docker build --tag=exercise-2 .’ để tạo nơi hoạt động cho chương trình**
+![image](https://github.com/user-attachments/assets/6e71a110-a1d6-458b-8413-5e4d1b6707dc)
+**Đây là image sau khi hoàn thành câu lệnh:**
+![image](https://github.com/user-attachments/assets/edb0e3f3-ed46-4456-9597-9f3dc20be33f)
+**Tiếp theo thực hiện lệnh “docker-compose up run” để chạy chương trình và có kết quả như sau:**
+![image](https://github.com/user-attachments/assets/068b6cf2-058b-4742-8837-935a0f2ac1c3)
 
-- Python data processing.
-- csv, flat-file, parquet, json, etc.
-- SQL database table design.
-- Python + Postgres, data ingestion and retrieval.
-- PySpark
-- Data cleansing / dirty data.
+#Ex5: 
+**Sau khi tạo xog file main.py để download link về thì thực hiện chạy lệnh ‘docker build --tag=exercise-2 .’ để tạo nơi hoạt động cho chương trình**
+![image](https://github.com/user-attachments/assets/5615b57d-30c1-4764-811c-f95076738bb9)
+**Đây là image sau khi hoàn thành câu lệnh:**
+![image](https://github.com/user-attachments/assets/6de84767-d244-4dec-8662-a3421982331b)
+**Tiếp theo thực hiện lệnh “docker-compose up run” để chạy chương trình và có kết quả như sau:**
+![image](https://github.com/user-attachments/assets/b2044fbb-3c52-47d6-82d1-8249fd208b31)
+**Kiểm tra lại kết quả **
+![image](https://github.com/user-attachments/assets/919f9f3e-496e-497d-b996-acb9f9910a66)
+#Ex6: 
+**Sau khi tạo xog file main.py để download link về thì thực hiện chạy lệnh ‘docker build --tag=exercise-2 .’ để tạo nơi hoạt động cho chương trình**
+![image](https://github.com/user-attachments/assets/ee956903-7168-447c-a7fc-6ac643280eb8)
+**Đây là image sau khi hoàn thành câu lệnh:**
+![image](https://github.com/user-attachments/assets/2faa2df8-c3bc-41e8-8b24-37cac76dca57)
+**Tiếp theo thực hiện lệnh “docker-compose up run” để chạy chương trình và có kết quả như sau:**
+![image](https://github.com/user-attachments/assets/f04b18e8-053c-4e05-bc77-d14b9a72e45a)
+![image](https://github.com/user-attachments/assets/8238bf2e-1b52-4782-b061-dd361a870e89)
+![image](https://github.com/user-attachments/assets/2ce93c56-a4a6-446e-b735-dae32c8813c2)
+![image](https://github.com/user-attachments/assets/eb742dde-2c76-44fe-952d-9804d0d4ae24)
 
-### How to work on the problems.
-You will need two things to work effectively on most all
-of these problems. 
-- `Docker`
-- `docker-compose`
-
-All the tools and technologies you need will be packaged
-  into the `dockerfile` for each exercise.
-
-For each exercise you will need to `cd` into that folder and
-run the `docker build` command, that command will be listed in
-the `README` for each exercise, follow those instructions.
-
-### Beginner Exercises
-
-#### Exercise 1 - Downloading files.
-The [first exercise](https://github.com/danielbeach/data-engineering-practice/tree/main/Exercises/Exercise-1) tests your ability to download a number of files
-from an `HTTP` source and unzip them, storing them locally with `Python`.
-`cd Exercises/Exercise-1` and see `README` in that location for instructions.
-
-#### Exercise 2 - Web Scraping + Downloading + Pandas
-The [second exercise](https://github.com/danielbeach/data-engineering-practice/tree/main/Exercises/Exercise-2) 
-tests your ability perform web scraping, build uris, download files, and use Pandas to
-do some simple cumulative actions.
-`cd Exercises/Exercise-2` and see `README` in that location for instructions.
-
-#### Exercise 3 - Boto3 AWS + s3 + Python.
-The [third exercise](https://github.com/danielbeach/data-engineering-practice/tree/main/Exercises/Exercise-3) tests a few skills.
-This time we  will be using a popular `aws` package called `boto3` to try to perform a multi-step
-actions to download some open source `s3` data files.
-`cd Exercises/Exercise-3` and see `README` in that location for instructions.
-
-#### Exercise 4 - Convert JSON to CSV + Ragged Directories.
-The [fourth exercise](https://github.com/danielbeach/data-engineering-practice/tree/main/Exercises/Exercise-4) 
-focuses more file types `json` and `csv`, and working with them in `Python`.
-You will have to traverse a ragged directory structure, finding any `json` files
-and converting them to `csv`.
-
-#### Exercise 5 - Data Modeling for Postgres + Python.
-The [fifth exercise](https://github.com/danielbeach/data-engineering-practice/tree/main/Exercises/Exercise-5) 
-is going to be a little different than the rest. In this problem you will be given a number of
-`csv` files. You must create a data model / schema to hold these data sets, including indexes,
-then create all the tables inside `Postgres` by connecting to the database with `Python`.
-
-
-### Intermediate Exercises
-
-#### Exercise 6 - Ingestion and Aggregation with PySpark.
-The [sixth exercise](https://github.com/danielbeach/data-engineering-practice/tree/main/Exercises/Exercise-6) 
-Is going to step it up a little and move onto more popular tools. In this exercise we are going
-to load some files using `PySpark` and then be asked to do some basic aggregation.
-Best of luck!
-
-#### Exercise 7 - Using Various PySpark Functions
-The [seventh exercise](https://github.com/danielbeach/data-engineering-practice/tree/main/Exercises/Exercise-7) 
-Taking a page out of the previous exercise, this one is focus on using a few of the
-more common build in PySpark functions `pyspark.sql.functions` and applying their
-usage to real-life problems.
-
-Many times to solve simple problems we have to find and use multiple functions available
-from libraries. This will test your ability to do that.
-
-#### Exercise 8 - Using DuckDB for Analytics and Transforms.
-The [eighth exercise](https://github.com/danielbeach/data-engineering-practice/tree/main/Exercises/Exercise-8) 
-Using new tools is imperative to growing as a Data Engineer. DuckDB is one of those new tools. In this
-exercise you will have to complete a number of analytical and transformation tasks using DuckDB. This
-will require an understanding of the functions and documenation of DuckDB.
-
-#### Exercise 9 - Using Polars lazy computation.
-The [ninth exercise](https://github.com/danielbeach/data-engineering-practice/tree/main/Exercises/Exercise-9) 
-Polars is a new Rust based tool with a wonderful Python package that has taken Data Engineering by
-storm. It's better than Pandas because it has both SQL Context and supports Lazy evalutation 
-for larger than memory data sets! Show your Lazy skills!
+#Ex7: 
+**Sau khi tạo xog file main.py để download link về thì thực hiện chạy lệnh ‘docker build --tag=exercise-2 .’ để tạo nơi hoạt động cho chương trình**
+![image](https://github.com/user-attachments/assets/9650ea8a-0e55-4e2c-8890-a220133d836e)
+**Đây là image sau khi hoàn thành câu lệnh:**
+![image](https://github.com/user-attachments/assets/b60fb09b-b877-4982-bcc1-2c1160c70f33)
+**Tiếp theo thực hiện lệnh “docker-compose up run” để chạy chương trình và có kết quả như sau:**
+![image](https://github.com/user-attachments/assets/cca67c4b-166f-4682-9cf0-1f1ed32a5f2f)
+![image](https://github.com/user-attachments/assets/730d3ea4-e5c2-4e24-9dcc-c69bb76b7bff)
+![image](https://github.com/user-attachments/assets/f9679599-8f1b-4cfd-829a-196bd7441037)
 
 
-### Advanced Exercises
 
-#### Exercise 10 - Data Quality with Great Expectations
-The [tenth exercise](https://github.com/danielbeach/data-engineering-practice/tree/main/Exercises/Exercise-10) 
-This exercise is to help you learn Data Quality, specifically a tool called Great Expectations. You will
-be given an existing datasets in CSV format, as well as an existing pipeline. There is a data quality issue 
-and you will be asked to implement some Data Quality checks to catch some of these issues.
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -8,5 +8,5 @@ services:
     run:
       image: "exercise-7"
       volumes:
-        - .:/app
+        - ./data:/app/data
       command: /spark/bin/spark-submit main.py
